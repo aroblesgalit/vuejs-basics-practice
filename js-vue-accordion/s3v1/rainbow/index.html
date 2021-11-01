@@ -14,7 +14,9 @@
   <body>
     <div id="colors">
       <ul>
-        <li v-for="color in rainbow">{{ color }}</li>
+        <li v-bind:style="{color: color}" v-for="color in rainbow">
+          {{ color }}
+        </li>
       </ul>
     </div>
 
