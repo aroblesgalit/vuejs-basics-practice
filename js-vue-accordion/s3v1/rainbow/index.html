@@ -14,8 +14,8 @@
   <body>
     <div id="colors">
       <ul>
-        <li v-bind:style="{color: color}" v-for="color in rainbow">
-          {{ color }}
+        <li v-bind:style="{color: color}" v-for="(color, index) in rainbow">
+          {{index + 1}} {{ color }}
         </li>
       </ul>
     </div>
