@@ -24,6 +24,7 @@
             v-show="type === '' || type === media.type"
             v-for="media in mediaList"
             v-on:click="toggleDetails(media)"
+            v-bind:class="{less: media.showDetail, more: !media.showDetail}"
           >
             <h3>
               {{ media.title }}
