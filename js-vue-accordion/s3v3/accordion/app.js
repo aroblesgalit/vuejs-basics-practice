@@ -48,6 +48,13 @@ const media = [
     type: 'streaming video',
     contributor: '',
     showDetail: false
+  },
+  {
+    title: 'New Title',
+    description: 'A slow-burning Breaking Bad prequel.',
+    type: 'e-book',
+    contributor: '',
+    showDetail: false
   }
 ]
 
