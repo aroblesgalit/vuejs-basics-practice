@@ -20,7 +20,7 @@
           <option v-for="item in mediaList">{{ item.type }}</option>
         </select>
         <ul>
-          <li v-for="media in mediaList" v-on:click="toggleDetails(media)">
+          <li v-for="media in filteredList" v-on:click="toggleDetails(media)">
             <h3>
               {{ media.title }}
             </h3>

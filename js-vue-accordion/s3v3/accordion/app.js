@@ -56,14 +56,19 @@ const app = new Vue({
   data: {
     title: 'Treehouse Public Library',
     mediaList: media,
-    type: ''
+    type: '',
+    filteredList: media
   },
   methods: {
     toggleDetails: function (media) {
       media.showDetail = !media.showDetail
     },
-    filterList: function (e) {
-      this.type = e.target.value
+    filterList: function () {
+      this.type = event.target.value
+      this.filteredList =
+        this.type != 'Select a type of media...'
+          ? this.mediaList.filter(item => item.type === this.type)
+          : this.mediaList
     }
   }
 })
