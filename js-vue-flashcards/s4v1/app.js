@@ -34,5 +34,9 @@ new Vue({
   data: {
     cards: cards
   },
-  methods: {}
+  methods: {
+    toggleCard: function (card) {
+      card.flipped = !card.flipped
+    }
+  }
 })
