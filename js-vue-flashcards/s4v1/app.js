@@ -39,7 +39,8 @@ new Vue({
   data: {
     cards: cards,
     newFront: '',
-    newBack: ''
+    newBack: '',
+    error: false
   },
   methods: {
     toggleCard: function (card) {

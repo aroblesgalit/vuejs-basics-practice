@@ -30,7 +30,9 @@
           />
         </label>
         <button v-on:click="addNew">Add a New Card</button>
-        <span class="error">Oops! Flashcards need a front and a back.</span>
+        <span v-show="error" class="error"
+          >Oops! Flashcards need a front and a back.</span
+        >
       </div>
 
       <ul class="flashcard-list">
