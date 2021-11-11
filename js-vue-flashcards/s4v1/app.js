@@ -24,6 +24,8 @@ const cards = [
 // Display our data
 // On click: flip cards back and forth
 // Get info for new cards from the user
+// // Create data properties for front and back of new card
+// // Bind those properties to the form inputs using v-model
 // Add new card when user hits enter or clicks button
 // Delete cards
 // Animate card flip
@@ -32,7 +34,9 @@ const cards = [
 new Vue({
   el: '#flashcard-app',
   data: {
-    cards: cards
+    cards: cards,
+    newFront: '',
+    newBack: ''
   },
   methods: {
     toggleCard: function (card) {
