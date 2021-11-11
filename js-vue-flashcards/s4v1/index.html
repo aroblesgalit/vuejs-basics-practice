@@ -24,7 +24,7 @@
           >Back
           <input v-model="newBack" type="text" id="back" />
         </label>
-        <button>Add a New Card</button>
+        <button v-on:click="addNew">Add a New Card</button>
         <span class="error">Oops! Flashcards need a front and a back.</span>
       </div>
 
