@@ -20,6 +20,12 @@
 
 const app = new Vue({
   el: '#app',
-  data: {},
+  data: {
+    title: 'Hakuna Matata',
+    summary: "It's a wonderful word!",
+    thumbnail: 'https://placeimg.com/75/75/any',
+    alt: 'Placeholder',
+    votes: 0
+  },
   methods: {}
 })
