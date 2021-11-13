@@ -27,5 +27,12 @@ const app = new Vue({
     alt: 'Placeholder',
     votes: 0
   },
-  methods: {}
+  methods: {
+    increment: function () {
+      this.votes += 1
+    },
+    decrement: function () {
+      this.votes -= 1
+    }
+  }
 })
