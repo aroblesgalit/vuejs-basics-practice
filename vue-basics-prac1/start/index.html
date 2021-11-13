@@ -16,8 +16,8 @@
       <h1>Skimmit News</h1>
       <div class="post">
         <div id="voteCounter">
-          <span>+</span>
-          <span>-</span>
+          <span v-on:click="increment">+</span>
+          <span v-on:click="decrement">-</span>
           <p class="votes">Votes: {{ votes }}</p>
         </div>
         <div><img v-bind:src="thumbnail" v-bind:alt="alt" /></div>
