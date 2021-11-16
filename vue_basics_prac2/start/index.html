@@ -20,8 +20,8 @@
       </div>
       <div v-for="post in posts" class="post">
         <div id="voteCounter">
-          <span v-on:click="increment">+</span>
-          <span v-on:click="decrement">-</span>
+          <span v-on:click="increment(post)">+</span>
+          <span v-on:click="decrement(post)">-</span>
           <p class="votes">Votes: {{ post.votes }}</p>
         </div>
         <div><img v-bind:src="post.thumbnail" alt="Placeholder image." /></div>
