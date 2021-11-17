@@ -19,7 +19,7 @@
         <input v-model="newSummary" type="text" />
         <button v-on:click="createNew">Create New</button>
       </div>
-      <div v-for="post in posts" class="post">
+      <div v-for="post in sortedPosts" class="post">
         <div id="voteCounter">
           <span v-on:click="increment(post)">+</span>
           <span v-on:click="decrement(post)">-</span>
