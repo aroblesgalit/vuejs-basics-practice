@@ -15,7 +15,8 @@
     <div id="app" class="container">
       <h1>Skimmit News</h1>
       <div class="form">
-        Title: <input type="text" /> Summary: <input type="text" />
+        Title: <input v-model="newTitle" type="text" /> Summary:
+        <input v-model="newSummary" type="text" />
         <button>Create New</button>
       </div>
       <div v-for="post in posts" class="post">

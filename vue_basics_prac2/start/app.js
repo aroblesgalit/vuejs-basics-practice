@@ -46,7 +46,9 @@ const posts = [
 new Vue({
   el: '#app',
   data: {
-    posts: posts
+    posts: posts,
+    newTitle: '',
+    newSummary: ''
   },
   methods: {
     increment: function (post) {
