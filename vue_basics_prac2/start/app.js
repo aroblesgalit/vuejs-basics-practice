@@ -58,12 +58,14 @@ new Vue({
       post.votes -= 1
     },
     createNew: function () {
-      this.posts.push({
-        title: this.newTitle,
-        summary: this.newSummary,
-        votes: 0,
-        thumbnail: 'https://placeimg.com/75/75/any'
-      })
+      if (this.newTitle && this.newSummary) {
+        this.posts.push({
+          title: this.newTitle,
+          summary: this.newSummary,
+          votes: 0,
+          thumbnail: 'https://placeimg.com/75/75/any'
+        })
+      }
     }
   }
 })
