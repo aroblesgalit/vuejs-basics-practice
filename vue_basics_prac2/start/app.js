@@ -65,6 +65,8 @@ new Vue({
           votes: 0,
           thumbnail: 'https://placeimg.com/75/75/any'
         })
+        this.newTitle = ''
+        this.newSummary = ''
       }
     }
   },
