@@ -25,6 +25,10 @@ new Vue({
     reset: function () {
       this.instructions = 'x goes first'
       this.playerTurn = 'x'
+      const cells = document.querySelectorAll('.cell')
+      cells.forEach(function (cell) {
+        cell.innerText = ''
+      })
     }
   }
 })
