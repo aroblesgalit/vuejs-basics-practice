@@ -7,5 +7,20 @@ new Vue({
     title: 'tic tac toe',
     instructions: 'x goes first',
     playerTurn: 'x'
+  },
+  methods: {
+    markCell: function () {
+      if (!event.target.innerText) {
+        if (this.playerTurn === 'x') {
+          event.target.append('x')
+          this.playerTurn = 'o'
+          this.instructions = "o's turn"
+        } else {
+          event.target.append('o')
+          this.playerTurn = 'x'
+          this.instructions = "x's turn"
+        }
+      }
+    }
   }
 })
