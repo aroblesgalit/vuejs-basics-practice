@@ -21,6 +21,10 @@ new Vue({
           this.instructions = "x's turn"
         }
       }
+    },
+    reset: function () {
+      this.instructions = 'x goes first'
+      this.playerTurn = 'x'
     }
   }
 })
