@@ -24,15 +24,14 @@
           {{ instructions }}
         </p>
         <div v-bind:class="[(winner || turns === 9) && 'disabled', 'board']">
-          <div v-on:click="markCell" class="cell one"></div>
-          <div v-on:click="markCell" class="cell two"></div>
-          <div v-on:click="markCell" class="cell three"></div>
-          <div v-on:click="markCell" class="cell four"></div>
-          <div v-on:click="markCell" class="cell five"></div>
-          <div v-on:click="markCell" class="cell six"></div>
-          <div v-on:click="markCell" class="cell seven"></div>
-          <div v-on:click="markCell" class="cell eight"></div>
-          <div v-on:click="markCell" class="cell nine"></div>
+          <div
+            v-for="cell in cellMarks"
+            v-on:click="markCell(cell)"
+            class="cell"
+            v-bind:class="cell.color"
+          >
+            {{ cell.mark }}
+          </div>
         </div>
         <button v-on:click="reset" type="button">reset</button>
       </div>

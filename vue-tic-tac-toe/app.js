@@ -1,9 +1,46 @@
-// Create data properties for title, instructions, playerTurn
-// Add properties to vue template
+const cellMarks = [
+  {
+    mark: '',
+    color: ''
+  },
+  {
+    mark: '',
+    color: ''
+  },
+  {
+    mark: '',
+    color: ''
+  },
+  {
+    mark: '',
+    color: ''
+  },
+  {
+    mark: '',
+    color: ''
+  },
+  {
+    mark: '',
+    color: ''
+  },
+  {
+    mark: '',
+    color: ''
+  },
+  {
+    mark: '',
+    color: ''
+  },
+  {
+    mark: '',
+    color: ''
+  }
+]
 
 new Vue({
   el: '#app',
   data: {
+    cellMarks: cellMarks,
     title: 'tic tac toe',
     instructions: 'x goes first',
     playerTurn: 'x',
@@ -11,49 +48,47 @@ new Vue({
     winner: null
   },
   methods: {
-    markCell: function () {
-      if (this.winner) return
-      if (event.target.innerText) return
+    markCell: function (cell) {
+      // If there's a winner or the cell is already marked, do nothing
+      if (this.winner || event.target.innerText) return
+      // Increment the turn count
       this.turns += 1
-      // Mark cell accordingly
-      event.target.append(this.playerTurn)
+      // update the cell with the correct mark and color
+      cell.mark = this.playerTurn
+      cell.color = this.playerTurn === 'x' ? 'orange' : 'blue'
 
       // Check if winner
-      const cells = document.querySelectorAll('.cell')
-      const cellMarks = []
-      cells.forEach(function (cell) {
-        cellMarks.push(cell.innerText)
-      })
       if (this.turns >= 5) {
         if (
-          (cellMarks[0] &&
-            cellMarks[0] === cellMarks[1] &&
-            cellMarks[0] === cellMarks[2]) ||
-          (cellMarks[3] &&
-            cellMarks[3] === cellMarks[4] &&
-            cellMarks[3] === cellMarks[5]) ||
-          (cellMarks[6] &&
-            cellMarks[6] === cellMarks[7] &&
-            cellMarks[6] === cellMarks[8]) ||
-          (cellMarks[0] &&
-            cellMarks[0] === cellMarks[3] &&
-            cellMarks[0] === cellMarks[6]) ||
-          (cellMarks[1] &&
-            cellMarks[1] === cellMarks[4] &&
-            cellMarks[1] === cellMarks[7]) ||
-          (cellMarks[2] &&
-            cellMarks[2] === cellMarks[5] &&
-            cellMarks[2] === cellMarks[8]) ||
-          (cellMarks[0] &&
-            cellMarks[0] === cellMarks[4] &&
-            cellMarks[0] === cellMarks[8]) ||
-          (cellMarks[2] &&
-            cellMarks[2] === cellMarks[4] &&
-            cellMarks[2] === cellMarks[6])
+          (this.cellMarks[0]['mark'] &&
+            this.cellMarks[0]['mark'] === this.cellMarks[1]['mark'] &&
+            this.cellMarks[0]['mark'] === this.cellMarks[2]['mark']) ||
+          (this.cellMarks[3]['mark'] &&
+            this.cellMarks[3]['mark'] === this.cellMarks[4]['mark'] &&
+            this.cellMarks[3]['mark'] === this.cellMarks[5]['mark']) ||
+          (this.cellMarks[6]['mark'] &&
+            this.cellMarks[6]['mark'] === this.cellMarks[7]['mark'] &&
+            this.cellMarks[6]['mark'] === this.cellMarks[8]['mark']) ||
+          (this.cellMarks[0]['mark'] &&
+            this.cellMarks[0]['mark'] === this.cellMarks[3]['mark'] &&
+            this.cellMarks[0]['mark'] === this.cellMarks[6]['mark']) ||
+          (this.cellMarks[1]['mark'] &&
+            this.cellMarks[1]['mark'] === this.cellMarks[4]['mark'] &&
+            this.cellMarks[1]['mark'] === this.cellMarks[7]['mark']) ||
+          (this.cellMarks[2]['mark'] &&
+            this.cellMarks[2]['mark'] === this.cellMarks[5]['mark'] &&
+            this.cellMarks[2]['mark'] === this.cellMarks[8]['mark']) ||
+          (this.cellMarks[0]['mark'] &&
+            this.cellMarks[0]['mark'] === this.cellMarks[4]['mark'] &&
+            this.cellMarks[0]['mark'] === this.cellMarks[8]['mark']) ||
+          (this.cellMarks[2]['mark'] &&
+            this.cellMarks[2]['mark'] === this.cellMarks[4]['mark'] &&
+            this.cellMarks[2]['mark'] === this.cellMarks[6]['mark'])
         ) {
           this.winner = this.playerTurn
         }
       }
+      // Update instruction
       if (this.playerTurn === 'x' && this.turns < 9) {
         this.playerTurn = 'o'
         this.instructions = "o's turn"
@@ -74,11 +109,12 @@ new Vue({
         this.instructions = 'o goes first'
         this.playerTurn = 'o'
       }
+      // Reset all data to initial
       this.turns = 0
       this.winner = null
-      const cells = document.querySelectorAll('.cell')
-      cells.forEach(function (cell) {
-        cell.innerText = ''
+      this.cellMarks.forEach(function (cell) {
+        cell.mark = ''
+        cell.color = ''
       })
     }
   }

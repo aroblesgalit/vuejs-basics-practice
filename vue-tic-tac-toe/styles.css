@@ -39,11 +39,11 @@ p {
   margin-bottom: 30px;
 }
 
-p.blue {
+.blue {
   color: rgb(61, 202, 238);
 }
 
-p.orange {
+.orange {
   color: rgb(243, 186, 62);
 }
 
