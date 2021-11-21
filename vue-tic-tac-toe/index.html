@@ -34,6 +34,11 @@
           </div>
         </div>
         <button v-on:click="reset" type="button">reset</button>
+        <div class="scores">
+          <span>wins:</span>
+          <span class="orange">x - {{ xwins }}</span>
+          <span class="blue">o - {{ owins }}</span>
+        </div>
       </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>

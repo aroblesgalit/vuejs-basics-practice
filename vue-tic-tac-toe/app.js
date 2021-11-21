@@ -45,6 +45,8 @@ new Vue({
     instructions: 'x goes first',
     playerTurn: 'x',
     turns: 0,
+    xwins: 0,
+    owins: 0,
     winner: null
   },
   methods: {
