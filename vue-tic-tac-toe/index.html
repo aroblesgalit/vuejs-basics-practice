@@ -17,7 +17,7 @@
     <main id="app">
       <div class="container">
         <h1>{{ title }}</h1>
-        <p v-if="winner">{{ winner }}</p>
+        <p v-if="winner">{{ winner }} wins!</p>
         <p v-else v-bind:class="playerTurn === 'x' ? 'orange' : 'blue'">
           {{ instructions }}
         </p>
