@@ -25,7 +25,6 @@ new Vue({
       cells.forEach(function (cell) {
         cellMarks.push(cell.innerText)
       })
-      console.log(cellMarks)
       if (this.turns >= 5) {
         if (
           (cellMarks[0] &&
@@ -67,8 +66,15 @@ new Vue({
       }
     },
     reset: function () {
-      this.instructions = 'x goes first'
-      this.playerTurn = 'x'
+      // Choose player who goes first randomly
+      const randomNum = Math.floor(Math.random() * 2)
+      if (randomNum === 0) {
+        this.instructions = 'x goes first'
+        this.playerTurn = 'x'
+      } else {
+        this.instructions = 'o goes first'
+        this.playerTurn = 'o'
+      }
       this.turns = 0
       this.winner = null
       const cells = document.querySelectorAll('.cell')
