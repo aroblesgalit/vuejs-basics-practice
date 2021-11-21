@@ -47,6 +47,7 @@ new Vue({
     turns: 0,
     xwins: 0,
     owins: 0,
+    ties: 0,
     winner: null
   },
   methods: {
@@ -88,6 +89,11 @@ new Vue({
             this.cellMarks[2]['mark'] === this.cellMarks[6]['mark'])
         ) {
           this.winner = this.playerTurn
+          if (this.winner === 'x') {
+            this.xwins += 1
+          } else {
+            this.owins += 1
+          }
         }
       }
       // Update instruction
@@ -99,6 +105,7 @@ new Vue({
         this.instructions = "x's turn"
       } else {
         this.instructions = "It's a tie!"
+        this.ties += 1
       }
     },
     reset: function () {
