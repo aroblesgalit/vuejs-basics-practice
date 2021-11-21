@@ -21,7 +21,7 @@
         <p v-else v-bind:class="playerTurn === 'x' ? 'orange' : 'blue'">
           {{ instructions }}
         </p>
-        <div class="board">
+        <div v-bind:class="[(winner || turns === 9) && 'disabled', 'board']">
           <div v-on:click="markCell" class="cell one"></div>
           <div v-on:click="markCell" class="cell two"></div>
           <div v-on:click="markCell" class="cell three"></div>

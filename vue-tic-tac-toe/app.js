@@ -12,19 +12,12 @@ new Vue({
   },
   methods: {
     markCell: function () {
+      if (this.winner) return
       // Mark cell accordingly
       if (!event.target.innerText && this.turns < 9) {
         event.target.append(this.playerTurn)
-        // if (this.playerTurn === 'x' && this.turns < 8) {
-        //   this.playerTurn = 'o'
-        //   this.instructions = "o's turn"
-        // } else if (this.playerTurn === 'o' && this.turns < 8) {
-        //   this.playerTurn = 'x'
-        //   this.instructions = "x's turn"
-        // } else {
-        //   this.instructions = '??? wins!'
-        // }
       }
+
       // Check if winner
       const cells = document.querySelectorAll('.cell')
       const cellMarks = []
@@ -34,9 +27,30 @@ new Vue({
       console.log(cellMarks)
       if (this.turns >= 5) {
         if (
-          (cellMarks[0] === cellMarks[1] && cellMarks[0] === cellMarks[2]) ||
-          (cellMarks[3] === cellMarks[4] && cellMarks[3] === cellMarks[5]) ||
-          (cellMarks[6] === cellMarks[7] && cellMarks[6] === cellMarks[8])
+          (cellMarks[0] &&
+            cellMarks[0] === cellMarks[1] &&
+            cellMarks[0] === cellMarks[2]) ||
+          (cellMarks[3] &&
+            cellMarks[3] === cellMarks[4] &&
+            cellMarks[3] === cellMarks[5]) ||
+          (cellMarks[6] &&
+            cellMarks[6] === cellMarks[7] &&
+            cellMarks[6] === cellMarks[8]) ||
+          (cellMarks[0] &&
+            cellMarks[0] === cellMarks[3] &&
+            cellMarks[0] === cellMarks[6]) ||
+          (cellMarks[1] &&
+            cellMarks[1] === cellMarks[4] &&
+            cellMarks[1] === cellMarks[7]) ||
+          (cellMarks[2] &&
+            cellMarks[2] === cellMarks[5] &&
+            cellMarks[2] === cellMarks[8]) ||
+          (cellMarks[0] &&
+            cellMarks[0] === cellMarks[4] &&
+            cellMarks[0] === cellMarks[8]) ||
+          (cellMarks[2] &&
+            cellMarks[2] === cellMarks[4] &&
+            cellMarks[2] === cellMarks[6])
         ) {
           this.winner = this.playerTurn
         }
@@ -48,7 +62,7 @@ new Vue({
         this.playerTurn = 'x'
         this.instructions = "x's turn"
       } else {
-        this.instructions = '??? wins!'
+        this.instructions = "It's a tie!"
       }
       this.turns += 1
     },
