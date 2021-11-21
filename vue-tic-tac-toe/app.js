@@ -10,6 +10,7 @@ new Vue({
   },
   methods: {
     markCell: function () {
+      // Mark cell accordingly
       if (!event.target.innerText) {
         if (this.playerTurn === 'x') {
           event.target.append('x')
@@ -21,6 +22,7 @@ new Vue({
           this.instructions = "x's turn"
         }
       }
+      // Check if winner
     },
     reset: function () {
       this.instructions = 'x goes first'

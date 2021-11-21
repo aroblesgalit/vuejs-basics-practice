@@ -40,6 +40,14 @@ p {
   margin-bottom: 30px;
 }
 
+p.blue {
+  color: rgb(61, 202, 238);
+}
+
+p.orange {
+  color: rgb(243, 186, 62);
+}
+
 .board {
   height: 380px;
   width: 380px;
