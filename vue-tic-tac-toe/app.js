@@ -7,23 +7,35 @@ new Vue({
     title: 'tic tac toe',
     instructions: 'x goes first',
     playerTurn: 'x',
-    turns: 0
+    turns: 0,
+    winner: null
   },
   methods: {
     markCell: function () {
       // Mark cell accordingly
-      if (!event.target.innerText) {
-        if (this.playerTurn === 'x') {
-          event.target.append('x')
+      if (!event.target.innerText && this.turns < 9) {
+        event.target.append(this.playerTurn)
+        if (this.playerTurn === 'x' && this.turns < 8) {
           this.playerTurn = 'o'
           this.instructions = "o's turn"
-        } else {
-          event.target.append('o')
+        } else if (this.playerTurn === 'o' && this.turns < 8) {
           this.playerTurn = 'x'
           this.instructions = "x's turn"
+        } else {
+          this.instructions = '??? wins!'
         }
+        // if (this.playerTurn === 'x') {
+        //   event.target.append('x')
+        //   this.playerTurn = 'o'
+        //   this.instructions = "o's turn"
+        // } else {
+        //   event.target.append('o')
+        //   this.playerTurn = 'x'
+        //   this.instructions = "x's turn"
+        // }
+        this.turns += 1
       }
-      this.turns += 1
+
       // Check if winner
     },
     reset: function () {
