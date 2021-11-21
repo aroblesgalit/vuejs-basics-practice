@@ -6,7 +6,8 @@ new Vue({
   data: {
     title: 'tic tac toe',
     instructions: 'x goes first',
-    playerTurn: 'x'
+    playerTurn: 'x',
+    turns: 0
   },
   methods: {
     markCell: function () {
@@ -22,6 +23,7 @@ new Vue({
           this.instructions = "x's turn"
         }
       }
+      this.turns += 1
       // Check if winner
     },
     reset: function () {
