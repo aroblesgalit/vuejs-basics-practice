@@ -105,6 +105,9 @@ new Vue({
         this.instructions = "x's turn"
       } else {
         this.instructions = "It's a tie!"
+      }
+      // If it's a tie
+      if (this.turns === 9 && !this.winner) {
         this.ties += 1
       }
     },
