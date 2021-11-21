@@ -13,11 +13,10 @@ new Vue({
   methods: {
     markCell: function () {
       if (this.winner) return
+      if (event.target.innerText) return
       this.turns += 1
       // Mark cell accordingly
-      if (!event.target.innerText) {
-        event.target.append(this.playerTurn)
-      }
+      event.target.append(this.playerTurn)
 
       // Check if winner
       const cells = document.querySelectorAll('.cell')
