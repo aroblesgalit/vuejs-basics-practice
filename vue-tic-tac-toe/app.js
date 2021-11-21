@@ -13,8 +13,9 @@ new Vue({
   methods: {
     markCell: function () {
       if (this.winner) return
+      this.turns += 1
       // Mark cell accordingly
-      if (!event.target.innerText && this.turns < 9) {
+      if (!event.target.innerText) {
         event.target.append(this.playerTurn)
       }
 
@@ -55,20 +56,21 @@ new Vue({
           this.winner = this.playerTurn
         }
       }
-      if (this.playerTurn === 'x' && this.turns < 8) {
+      if (this.playerTurn === 'x' && this.turns < 9) {
         this.playerTurn = 'o'
         this.instructions = "o's turn"
-      } else if (this.playerTurn === 'o' && this.turns < 8) {
+      } else if (this.playerTurn === 'o' && this.turns < 9) {
         this.playerTurn = 'x'
         this.instructions = "x's turn"
       } else {
         this.instructions = "It's a tie!"
       }
-      this.turns += 1
     },
     reset: function () {
       this.instructions = 'x goes first'
       this.playerTurn = 'x'
+      this.turns = 0
+      this.winner = null
       const cells = document.querySelectorAll('.cell')
       cells.forEach(function (cell) {
         cell.innerText = ''
