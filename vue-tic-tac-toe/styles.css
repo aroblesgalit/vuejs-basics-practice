@@ -11,7 +11,7 @@ body {
   font-family: 'Quicksand', sans-serif;
   display: flex;
   justify-content: center;
-  padding-top: 40px;
+  padding-top: 30px;
 }
 
 main {
@@ -30,13 +30,13 @@ main {
 h1 {
   font-size: 54px;
   font-weight: 700;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 p {
   font-size: 18px;
   font-weight: 500;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .blue {
