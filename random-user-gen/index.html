@@ -16,7 +16,7 @@
       />
       <h1>{{ firstName }} {{ lastName}}</h1>
       <h3>Email: {{ email }}</h3>
-      <button :class="gender">Get Random User</button>
+      <button @click="getUser" :class="gender">Get Random User</button>
     </div>
 
     <script src="https://unpkg.com/vue@3.0.5"></script>
